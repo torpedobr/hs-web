@@ -1,0 +1,40 @@
+
+<!-- templates/send_text.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЧАТ</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <textarea id="result_text" rows="4" cols="50"></textarea>
+  <br><br>
+  <input type="text" id="text_input">
+  <button id="submit">Отправить</button>
+
+  
+
+    <script>
+      $(document).ready(function(){
+            $('#submit').click(function(){
+                var textData = $('#text_input').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '',
+                    data: {'text_data': textData, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                    success: function(response){
+                        if(response){
+                            $('#result_text').val(response);
+                        } else {
+                            $('#result_text').val('Ошибка: пустой ответ от сервера');
+                        }
+                    },
+                    error: function(){
+                        $('#result_text').val('Ошибка: запрос не удался');
+                    }
+                });
+            });
+        });
+  </script>
+</body>
+</html>
