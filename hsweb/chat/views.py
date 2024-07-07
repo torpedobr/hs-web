@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 from openai import OpenAI
 client = OpenAI(
-    api_key="sk-proj-JubBg4WHxHBezI1vx0icT3BlbkFJqkhAj0VB6774mnkujuHE",
+    api_key="",
 )
 
 def chat(request):
