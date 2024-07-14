@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'h8zp1_(qh$)pj)u29kpe#ky90d%usz#@c6q7=d+n6fn_#zqxqq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -119,3 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static') ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
