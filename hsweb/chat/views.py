@@ -4,10 +4,8 @@ from django.http import HttpResponse
 from openai import OpenAI
 
 model_id = 'gpt-3.5-turbo-0125'
-client = OpenAI(
-    # defaults to os.environ.get("OPENAI_API_KEY")
-    api_key="sk-proj-Giv98bXOCyGnEyxzU5KyT3BlbkFJHYaLiXhfnVRpsHwiYw0o",
-)
+client = OpenAI()
+
 
 def chat(request):
     if request.method == 'POST':
